@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from './components/Menu/Menu';
-import MovieFilter from './components/MovieFilter/MovieFilter';
-import MovieSearch from './components/MovieSearch/MovieSearch';
+import Movie from './components/Movie/Movie';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -29,8 +28,7 @@ function App() {
             </Route>
             <Route path="/">
               <h1>recommended</h1>
-              <MovieFilter />
-              <MovieSearch />
+              <Movie />
             </Route>
           </Switch>
         </Container>
