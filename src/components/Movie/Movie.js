@@ -1,9 +1,6 @@
 import React from 'react';
 import Card from './../Card/Card';
 import Chip from '@material-ui/core/Chip';
-import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,12 +20,9 @@ const useStyles = makeStyles((theme) => ({
     color: '#fefefe',
     marginRight: '1em',
   },
-  buttons: {
-    marginTop: '1em',
-  },
 }));
 
-const Movie = (_) => {
+const Movie = (props) => {
   const classes = useStyles();
 
   return (
@@ -40,14 +34,7 @@ const Movie = (_) => {
       <Chip className={classes.imdbScore} label={7.5} />
       <Chip className={classes.marginRight} label={75000} />
       <Chip className={classes.metascore} label={75} />
-      <Grid container spacing={2} className={classes.buttons}>
-        <Grid item xs={6}>
-        <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />}>Search</Button>
-        </Grid>
-        <Grid item xs={6}>
-          <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />}>Search</Button>
-        </Grid>
-      </Grid>
+      {props.children}
     </Card>
   );
 }
