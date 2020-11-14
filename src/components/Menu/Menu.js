@@ -26,13 +26,13 @@ const Menu = (_) => {
   return (
     <Aux>
       <AppBar position="static">
-          <Toolbar>
-            <Typography className={classes.title} variant="h6" noWrap>movie_recommender</Typography>
-            <Button className={classes.button} color="inherit" component={Link} to="/watched">Watched</Button>
-            <Button className={classes.button} color="inherit" component={Link} to="/">Recommended</Button>
-            <Button className={classes.button} color="inherit" component={Link} to="/blocked">Blocked</Button>
-          </Toolbar>
-        </AppBar>
+        <Toolbar>
+          <Typography className={classes.title} variant="h6" noWrap>movie_recommender</Typography>
+          <Button className={classes.button} color="inherit" component={Link} to="/watched">Watched</Button>
+          <Button className={classes.button} color="inherit" component={Link} to="/">Recommended</Button>
+          <Button className={classes.button} color="inherit" component={Link} to="/blocked">Blocked</Button>
+        </Toolbar>
+      </AppBar>
     </Aux>
   );
 }

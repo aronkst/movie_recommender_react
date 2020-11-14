@@ -7,7 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ReplayIcon from '@material-ui/icons/Replay';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_) => ({
   textfield: {
     marginTop: '1em',
   },
@@ -25,7 +25,7 @@ const MovieSearch = (_) => {
       <h2>add watched movie</h2>
       <p>fill in the field below to search the movie that you want to add as watched</p>
       <form action="" method="GET">
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} label="title" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="title" />
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
             <Button fullWidth variant="contained" color="secondary" startIcon={<ReplayIcon />} type="reset">Reset</Button>

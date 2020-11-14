@@ -7,7 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ReplayIcon from '@material-ui/icons/Replay';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_) => ({
   textfield: {
     marginTop: '1em',
   },
@@ -25,13 +25,13 @@ const MovieFilter = (_) => {
       <h2>movies filter</h2>
       <p>fill in the fields below to filter the movies on the side</p>
       <form action="" method="GET">
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} label="title" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} label="summary" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} type="number" label="year" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} label="imdb" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} label="genre" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} type="number" label="score" />
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{shrink: true,}} type="number" label="metascore" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="title" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="summary" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} type="number" label="year" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="imdb" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="genre" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} type="number" label="score" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} type="number" label="metascore" />
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
             <Button fullWidth variant="contained" color="secondary" startIcon={<ReplayIcon />} type="reset">Reset</Button>

@@ -5,7 +5,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_) => ({
   buttons: {
     marginTop: '1em',
   },

@@ -3,7 +3,7 @@ import Card from './../Card/Card';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_) => ({
   imdb: {
     color: 'rgba(0, 0, 0, 0.54)',
   },
@@ -27,7 +27,7 @@ const Movie = (props) => {
 
   return (
     <Card>
-      <img src="" alt="Movie"/>
+      <img src="" alt="Movie" />
       <h2>Movie (2020) <span className={classes.imdb}>im12354353</span></h2>
       <p>Summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary</p>
       <p>Action, Comedy, Suspense</p>
