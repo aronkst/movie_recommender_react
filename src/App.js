@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './components/Menu/Menu';
-import MovieRecommended from './components/MovieRecommended/MovieRecommended';
+import MovieBlocked from './components/MovieBlocked/MovieBlocked';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -28,7 +28,7 @@ function App() {
             </Route>
             <Route path="/">
               <h1>recommended</h1>
-              <MovieRecommended />
+              <MovieBlocked />
             </Route>
           </Switch>
         </Container>
