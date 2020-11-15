@@ -20,7 +20,7 @@ const MovieSearched = (_) => {
 
   return (
     <Card>
-      <img src="https://m.media-amazon.com/images/M/MV5BOWJiMTNiNDktZGM1ZS00NmU3LWFiNmQtNjc0ZjNlMTU5ZjAzXkEyXkFqcGdeQXVyNjg4NzAyOTA@._V1_UX32_CR0,0,32,44_AL_.jpg" alt="Movie" />
+      <img src="" alt="Movie" />
       <h3 className={classes.title}>Movie (2020) <span className={classes.imdb}>im12354353</span></h3>
       <Grid container spacing={2} className={classes.buttons}>
         <Grid item xs={12}>
