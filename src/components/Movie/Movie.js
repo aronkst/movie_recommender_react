@@ -27,13 +27,13 @@ const Movie = (props) => {
 
   return (
     <Card>
-      <img src="" alt="Movie" />
-      <h2>Movie (2020) <span className={classes.imdb}>im12354353</span></h2>
-      <p>Summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary</p>
-      <p>Action, Comedy, Suspense</p>
-      <Chip className={classes.imdbScore} label={7.5} />
-      <Chip className={classes.marginRight} label={75000} />
-      <Chip className={classes.metascore} label={75} />
+      <img src={`data:image/jpeg;charset=utf-8;base64,${props.cover}`} alt={props.title} />
+      <h2>{props.title} ({props.year}) <span className={classes.imdb}>{props.imdb}</span></h2>
+      <p>{props.summary}</p>
+      <p>{props.genres.split(',').join(', ')}</p>
+      <Chip className={classes.imdbScore} label={props.score} />
+      <Chip className={classes.marginRight} label={props.amountOfVotes} />
+      <Chip className={classes.metascore} label={props.metascore} />
       {props.children}
     </Card>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './components/Menu/Menu';
-import MovieSearched from './components/MovieSearched/MovieSearched';
+import WatchedMovies from './containers/WatchedMovies/WatchedMovies';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function App() {
         <Container>
           <Switch>
             <Route path="/watched">
-              <h1>watched</h1>
+              <WatchedMovies />
             </Route>
             <Route path="/blocked">
               <h1>blocked</h1>
@@ -28,7 +28,6 @@ function App() {
             </Route>
             <Route path="/">
               <h1>recommended</h1>
-              <MovieSearched />
             </Route>
           </Switch>
         </Container>

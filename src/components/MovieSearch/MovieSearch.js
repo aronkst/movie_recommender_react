@@ -8,12 +8,14 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((_) => ({
+  title: {
+    marginTop: '0',
+  },
   textfield: {
     marginTop: '1em',
   },
   buttons: {
     marginTop: '1em',
-    marginBottom: '1em',
   }
 }));
 
@@ -22,10 +24,10 @@ const MovieSearch = (_) => {
 
   return (
     <Card>
-      <h2>add watched movie</h2>
-      <p>fill in the field below to search the movie that you want to add as watched</p>
+      <h2 className={classes.title}>ADD WATCHED MOVIE</h2>
+      <p>FILL IN THE FIELD BELOW TO SEARCH THE MOVIE THAT YOU WANT TO ADD AS WATCHED.</p>
       <form action="" method="GET">
-        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="title" />
+        <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} label="TITLE" />
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
             <Button fullWidth variant="contained" color="secondary" startIcon={<ReplayIcon />} type="reset">Reset</Button>
