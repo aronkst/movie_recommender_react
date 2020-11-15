@@ -8,7 +8,7 @@ import MovieFilter from './../../components/MovieFilter/MovieFilter';
 import MoreMovies from './../../components/MoreMovies/MoreMovies';
 import Axios from './../../helpers/Axios';
 
-const WatchedMovieAdd = (_) => {
+const WatchedMovies = (_) => {
   const [loading, setLoading] = useState(true);
   const [watchedMovies, setWatchedMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -51,4 +51,4 @@ const WatchedMovieAdd = (_) => {
   );
 }
 
-export default WatchedMovieAdd;
+export default WatchedMovies;
