@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from './components/Menu/Menu';
-import WatchedMovieAdd from './components/WatchedMovieAdd/WatchedMovieAdd';
-import MovieFilter from './components/MovieFilter/MovieFilter';
+import MovieSearched from './components/MovieSearched/MovieSearched';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -29,8 +28,7 @@ function App() {
             </Route>
             <Route path="/">
               <h1>recommended</h1>
-              <WatchedMovieAdd />
-              <MovieFilter />
+              <MovieSearched />
             </Route>
           </Switch>
         </Container>
