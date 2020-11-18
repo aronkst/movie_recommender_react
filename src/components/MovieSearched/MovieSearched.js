@@ -15,16 +15,16 @@ const useStyles = makeStyles((_) => ({
   },
 }));
 
-const MovieSearched = (_) => {
+const MovieSearched = (props) => {
   const classes = useStyles();
 
   return (
     <Card>
-      <img src="" alt="Movie" />
-      <h3 className={classes.title}>Movie (2020) <span className={classes.imdb}>im12354353</span></h3>
+      <img src={props.image} alt="Movie" />
+      <h3 className={classes.title}>{props.title} ({props.year}) <span className={classes.imdb}>{props.imdb}</span></h3>
       <Grid container spacing={2} className={classes.buttons}>
         <Grid item xs={12}>
-          <Button fullWidth variant="contained" color="primary" component={Link} startIcon={<AddIcon />}>Add</Button>
+          <Button fullWidth variant="contained" color="primary" component={Link} to={'#'} startIcon={<AddIcon />}>Add</Button>
         </Grid>
       </Grid>
     </Card>
