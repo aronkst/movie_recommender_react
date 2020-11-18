@@ -15,7 +15,7 @@ const ListMovies = (props) => {
   const [params, setParams] = useState({});
   const [moreMovies, setMoreMovies] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { // TODO UPDATE WITH PARAMS
     const getData = async () => {
       const data = await Axios(props.url, 'GET');
       setMovies(data);
@@ -23,11 +23,7 @@ const ListMovies = (props) => {
     };
 
     getData();
-
-    if (props.removeIMDb) {
-      setMovies(prevMovies => prevMovies.filter((movie) => movie.IMDb !== props.removeIMDb));
-    }
-  }, [props.url, props.removeIMDb]);
+  }, [props]);
 
   return (
     <Aux>
