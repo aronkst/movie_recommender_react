@@ -36,9 +36,9 @@ const MovieFilter = (props) => {
     };
     props.setParams(formParams);
     const data = await Axios(props.url, 'GET', { params: formParams });
-    props.setData(data);
+    props.setMovies(data);
     props.setPage(1);
-    props.setShowMoreMovies(true);
+    props.setMoreMovies(true);
   }
 
   return (

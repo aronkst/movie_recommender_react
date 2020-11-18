@@ -19,11 +19,9 @@ const MoreMovies = (props) => {
     props.setPage(page);
     let params = props.params;
     params.page = page;
-    const loadData = await Axios(props.url, 'GET', { params: params });
-    const data = props.data;
-    data.push(...loadData);
-    props.setData(data);
-    props.setShowMoreMovies(loadData.lenght > 0)
+    const newData = await Axios(props.url, 'GET', { params: params });
+    props.setMovies(prevData => ([...prevData, ...newData]));
+    props.setMoreMovies(newData.length >= 10)
   };
 
   return (
