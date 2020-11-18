@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 import CancelIcon from '@material-ui/icons/Cancel';
 import AddIcon from '@material-ui/icons/Add';
 import Axios from './../../helpers/Axios';
+import SimpleDialog from './../../components/SimpleDialog/SimpleDialog';
+import Aux from './../../hoc/Aux/Aux';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((_) => ({
@@ -17,6 +19,7 @@ const RecommendedMovies = (_) => {
   const classes = useStyles();
 
   const [imdb, setIMDb] = useState('');
+  const [openDialog, setOpenDialog] = useState(false);
 
   const blockMovie = async (imdb) => {
     let form = new FormData();
@@ -27,11 +30,23 @@ const RecommendedMovies = (_) => {
     }
   };
 
+  const fastAddMovie = async (imdb) => {
+    setOpenDialog(true);
+    let form = new FormData();
+    form.append('imdb', imdb);
+    form.append('like', 1);
+    const data = await Axios('/watched-movies', 'POST', form);
+    if (!data.hasOwnProperty('error')) {
+      setIMDb(imdb);
+    }
+    setOpenDialog(false);
+  };
+
   const options = (movie) => {
     return (
       <Grid className={classes.buttons} container spacing={2}>
         <Grid item xs={6}>
-          <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />}>ADD</Button>
+          <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => fastAddMovie(movie.IMDb)}>FAST ADD</Button>
         </Grid>
         <Grid item xs={6}>
           <Button fullWidth variant="contained" color="secondary" startIcon={<CancelIcon />} onClick={() => blockMovie(movie.IMDb)}>BLOCK</Button>
@@ -41,7 +56,10 @@ const RecommendedMovies = (_) => {
   }
 
   return (
-    <ListMovies title="RECOMMENDED MOVIES" url="/recommended-movies" options={options} removeIMDb={imdb} />
+    <Aux>
+      <ListMovies title="RECOMMENDED MOVIES" url="/recommended-movies" options={options} removeIMDb={imdb} />
+      <SimpleDialog open={openDialog} title="ADDING MOVIE" />
+    </Aux>
   );
 }
 
