@@ -4,6 +4,7 @@ import WatchedMovies from './containers/WatchedMovies/WatchedMovies';
 import BlockedMovies from './containers/BlockedMovies/BlockedMovies';
 import RecommendedMovies from './containers/RecommendedMovies/RecommendedMovies';
 import Search from './containers/Search/Search';
+import Add from './containers/Add/Add';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -24,10 +25,7 @@ function App() {
               <Search />
             </Route>
             <Route path="/add">
-              <h1>add</h1>
-            </Route>
-            <Route path="/loading">
-              <h1>loading</h1>
+              <Add />
             </Route>
             <Route path="/">
               <RecommendedMovies />

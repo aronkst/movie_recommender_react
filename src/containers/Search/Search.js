@@ -27,7 +27,7 @@ const Search = (_) => {
 
   return (
     <Aux>
-      <h1>SEARCHED BY: {queryParams['title']}</h1>
+      <h1>SEARCHED BY: {title}</h1>
       {loading
         ? <CircularProgress />
         : <Aux>
