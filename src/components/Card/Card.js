@@ -3,20 +3,20 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((_) => ({
-  card: {
+  paper: {
+    marginBottom: '1em',
+  },
+  div: {
     padding: '1em',
   },
-  root: {
-    marginBottom: '1em',
-  }
 }));
 
 const Card = (props) => {
   const classes = useStyles();
 
   return (
-    <Paper elevation={3} className={classes.root}>
-      <div className={classes.card}>
+    <Paper elevation={3} className={classes.paper}>
+      <div className={classes.div}>
         {props.children}
       </div>
     </Paper>

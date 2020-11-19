@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  title: {
+  typography: {
     flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginLeft: '1em',
-  }
+  },
 }));
 
 const Menu = (_) => {
@@ -27,7 +27,7 @@ const Menu = (_) => {
     <Aux>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>movie_recommender</Typography>
+          <Typography className={classes.typography} variant="h6" noWrap>movie_recommender</Typography>
           <Button className={classes.button} color="inherit" component={Link} to="/watched">Watched</Button>
           <Button className={classes.button} color="inherit" component={Link} to="/">Recommended</Button>
           <Button className={classes.button} color="inherit" component={Link} to="/blocked">Blocked</Button>

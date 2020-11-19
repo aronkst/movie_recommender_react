@@ -17,7 +17,7 @@ const useStyles = makeStyles((_) => ({
   },
   buttons: {
     marginTop: '1em',
-  }
+  },
 }));
 
 const MovieFilter = (props) => {

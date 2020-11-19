@@ -12,7 +12,7 @@ const useStyles = makeStyles((_) => ({
     color: '#000000',
     marginRight: '1em',
   },
-  marginRight: {
+  amount_of_votes: {
     marginRight: '1em',
   },
   metascore: {
@@ -32,7 +32,7 @@ const Movie = (props) => {
       <p>{props.summary}</p>
       <p>{props.genres.split(',').join(', ')}</p>
       <Chip className={classes.imdbScore} label={props.score} />
-      <Chip className={classes.marginRight} label={props.amountOfVotes} />
+      <Chip className={classes.amount_of_votes} label={props.amountOfVotes} />
       <Chip className={classes.metascore} label={props.metascore} />
       {props.children}
     </Card>
