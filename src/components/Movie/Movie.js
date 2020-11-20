@@ -31,8 +31,8 @@ const Movie = (props) => {
       <h2>{props.title} ({props.year}) <span className={classes.imdb}>{props.imdb}</span></h2>
       <p>{props.summary}</p>
       <p>{props.genres.split(',').join(', ')}</p>
-      <Chip className={classes.imdbScore} label={props.score} />
-      <Chip className={classes.amount_of_votes} label={props.amountOfVotes} />
+      <Chip className={classes.imdbScore} label={props.score.toLocaleString()} />
+      <Chip className={classes.amount_of_votes} label={props.amountOfVotes.toLocaleString()} />
       <Chip className={classes.metascore} label={props.metascore} />
       {props.children}
     </Card>
