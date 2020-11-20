@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from './components/Menu/Menu'
-import WatchedMovies from './containers/WatchedMovies/WatchedMovies'
+import WatchedMovies from './containers/Movies/WatchedMovies'
 import BlockedMovies from './containers/BlockedMovies/BlockedMovies'
 import RecommendedMovies from './containers/RecommendedMovies/RecommendedMovies'
 import Search from './containers/Search/Search'
@@ -15,7 +15,7 @@ function App () {
         <Menu />
         <Container>
           <Switch>
-            <Route path='/watched'>
+            <Route path='/watched-movies'>
               <WatchedMovies />
             </Route>
             <Route path='/blocked'>
