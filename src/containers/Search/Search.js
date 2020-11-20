@@ -5,6 +5,8 @@ import QueryString from 'query-string';
 import Axios from './../../helpers/Axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import MovieSearched from './../../components/MovieSearched/MovieSearched';
+import MovieSearch from './../../components/MovieSearch/MovieSearch';
+import Grid from '@material-ui/core/Grid';
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search);
@@ -28,14 +30,21 @@ const Search = (_) => {
   return (
     <Aux>
       <h1>SEARCHED BY: {title}</h1>
-      {loading
-        ? <CircularProgress />
-        : <Aux>
-          {movies.slice(0, 10).map(movie => {
-            return <MovieSearched key={movie.IMDb} image={movie.Image} title={movie.Title} year={movie.Year} imdb={movie.IMDb} />
-          })}
-        </Aux>
-      }
+      <Grid container spacing={2}>
+        <Grid item xs={8}>
+          {loading
+            ? <CircularProgress />
+            : <Aux>
+              {movies.slice(0, 10).map(movie => {
+                return <MovieSearched key={movie.IMDb} image={movie.Image} title={movie.Title} year={movie.Year} imdb={movie.IMDb} />
+              })}
+            </Aux>
+          }
+        </Grid>
+        <Grid item xs={4}>
+          <MovieSearch />
+        </Grid>
+      </Grid>
     </Aux>
   );
 }

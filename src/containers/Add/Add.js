@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link, useHistory } from "react-router-dom";
 import SimpleDialog from './../../components/SimpleDialog/SimpleDialog';
 import Aux from './../../hoc/Aux/Aux';
+import MovieSearch from './../../components/MovieSearch/MovieSearch';
 
 const useStyles = makeStyles((_) => ({
   buttons: {
@@ -69,27 +70,34 @@ const Search = (_) => {
   return (
     <Aux>
       <h1>ADD: {title} ({year})</h1>
-      <Card>
-        <form onSubmit={handleSubmit}>
-          <FormGroup row>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <KeyboardDatePicker fullWidth margin="normal" label="WHEN YOU WATCHED THIS MOVIE?" format="yyyy/MM/dd" value={date} onChange={handleDate} KeyboardButtonProps={{ 'aria-label': 'change date' }} name="date" />
-            </MuiPickersUtilsProvider>
-          </FormGroup>
-          <FormGroup row>
-            <FormControlLabel control={<Switch checked={like} onChange={handleLike} name="like" />} label="DID YOU LIKE THIS MOVIE?" />
-          </FormGroup>
-          <Grid container spacing={2} className={classes.buttons}>
-            <Grid item xs={6}>
-              <Button fullWidth variant="contained" color="secondary" startIcon={<CancelIcon />} component={Link} to="/">CANCEL</Button>
-            </Grid>
-            <Grid item xs={6}>
-              <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />} type="submit">ADD</Button>
-            </Grid>
-          </Grid>
-        </form>
-        <SimpleDialog open={loading} title="ADDING MOVIE" />
-      </Card>
+      <Grid container spacing={2}>
+        <Grid item xs={8}>
+          <Card>
+            <form onSubmit={handleSubmit}>
+              <FormGroup row>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker fullWidth margin="normal" label="WHEN YOU WATCHED THIS MOVIE?" format="yyyy/MM/dd" value={date} onChange={handleDate} KeyboardButtonProps={{ 'aria-label': 'change date' }} name="date" />
+                </MuiPickersUtilsProvider>
+              </FormGroup>
+              <FormGroup row>
+                <FormControlLabel control={<Switch checked={like} onChange={handleLike} name="like" />} label="DID YOU LIKE THIS MOVIE?" />
+              </FormGroup>
+              <Grid container spacing={2} className={classes.buttons}>
+                <Grid item xs={6}>
+                  <Button fullWidth variant="contained" color="secondary" startIcon={<CancelIcon />} component={Link} to="/">CANCEL</Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />} type="submit">ADD</Button>
+                </Grid>
+              </Grid>
+            </form>
+            <SimpleDialog open={loading} title="ADDING MOVIE" />
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <MovieSearch />
+        </Grid>
+      </Grid>
     </Aux>
   );
 }
