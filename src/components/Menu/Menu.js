@@ -28,9 +28,9 @@ const Menu = (_) => {
       <AppBar position="static">
         <Toolbar>
           <Typography className={classes.typography} variant="h6" noWrap>movie_recommender</Typography>
-          <Button className={classes.button} color="inherit" component={Link} to="/watched">Watched</Button>
-          <Button className={classes.button} color="inherit" component={Link} to="/">Recommended</Button>
-          <Button className={classes.button} color="inherit" component={Link} to="/blocked">Blocked</Button>
+          <Button className={classes.button} color="inherit" component={Link} to="/watched">WATCHED</Button>
+          <Button className={classes.button} color="inherit" component={Link} to="/">RECOMMENDED</Button>
+          <Button className={classes.button} color="inherit" component={Link} to="/blocked">BLOCKED</Button>
         </Toolbar>
       </AppBar>
     </Aux>

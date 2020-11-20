@@ -24,7 +24,7 @@ const MovieSearched = (props) => {
       <h3 className={classes.title}>{props.title} ({props.year}) <span className={classes.imdb}>{props.imdb}</span></h3>
       <Grid container spacing={2} className={classes.buttons}>
         <Grid item xs={12}>
-          <Button fullWidth variant="contained" color="primary" component={Link} to={`/add?imdb=${props.imdb}&year=${props.year}&title=${props.title}`} startIcon={<AddIcon />}>Add</Button>
+          <Button fullWidth variant="contained" color="primary" component={Link} to={`/add?imdb=${props.imdb}&year=${props.year}&title=${props.title}`} startIcon={<AddIcon />}>ADD</Button>
         </Grid>
       </Grid>
     </Card>

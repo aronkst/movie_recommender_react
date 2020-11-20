@@ -34,7 +34,7 @@ const MovieSearch = (_) => {
       <p>FILL IN THE FIELD BELOW TO SEARCH THE MOVIE THAT YOU WANT TO ADD AS WATCHED.</p>
       <form onSubmit={handleSubmit}>
         <TextField className={classes.marginTop} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} name="title" label="TITLE" />
-        <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />} className={classes.marginTop}>Search</Button>
+        <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />} className={classes.marginTop}>SEARCH</Button>
       </form>
     </Card>
   );

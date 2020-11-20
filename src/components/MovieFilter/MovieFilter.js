@@ -55,10 +55,10 @@ const MovieFilter = (props) => {
         <TextField className={classes.textfield} fullWidth variant="outlined" InputLabelProps={{ shrink: true, }} type="number" label="METASCORE" name="metascore" />
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
-            <Button fullWidth variant="contained" color="secondary" startIcon={<ReplayIcon />} type="reset">Reset</Button>
+            <Button fullWidth variant="contained" color="secondary" startIcon={<ReplayIcon />} type="reset">RESET</Button>
           </Grid>
           <Grid item xs={6}>
-            <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />} type="submit">Filter</Button>
+            <Button fullWidth variant="contained" color="primary" startIcon={<SearchIcon />} type="submit">FILTER</Button>
           </Grid>
         </Grid>
       </form>
