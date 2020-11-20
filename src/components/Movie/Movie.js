@@ -30,7 +30,7 @@ const Movie = (props) => {
       <img src={`data:image/jpeg;charset=utf-8;base64,${props.cover}`} alt={props.title} />
       <h2>{props.title} ({props.year}) <span className={classes.imdb}>{props.imdb}</span></h2>
       <p>{props.summary}</p>
-      <p>{props.genres.split(',').join(', ')}</p>
+      <p>{props.genres.split(',').join(', ')}.</p>
       <Chip className={classes.imdbScore} label={props.score.toLocaleString()} />
       <Chip className={classes.amount_of_votes} label={props.amountOfVotes.toLocaleString()} />
       <Chip className={classes.metascore} label={props.metascore} />
