@@ -8,6 +8,7 @@ import Axios from './../../helpers/Axios';
 import SimpleDialog from './../../components/SimpleDialog/SimpleDialog';
 import Aux from './../../hoc/Aux/Aux';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((_) => ({
   buttons: {
@@ -21,15 +22,6 @@ const RecommendedMovies = (_) => {
   const [imdb, setIMDb] = useState('');
   const [openDialog, setOpenDialog] = useState(false);
 
-  const blockMovie = async (imdb) => {
-    let form = new FormData();
-    form.append('imdb', imdb);
-    const data = await Axios('/not-watch', 'POST', form);
-    if (!data.hasOwnProperty('error')) {
-      setIMDb(imdb);
-    }
-  };
-
   const fastAddMovie = async (imdb) => {
     setOpenDialog(true);
     let form = new FormData();
@@ -42,13 +34,25 @@ const RecommendedMovies = (_) => {
     setOpenDialog(false);
   };
 
+  const blockMovie = async (imdb) => {
+    let form = new FormData();
+    form.append('imdb', imdb);
+    const data = await Axios('/not-watch', 'POST', form);
+    if (!data.hasOwnProperty('error')) {
+      setIMDb(imdb);
+    }
+  };
+
   const options = (movie) => {
     return (
       <Grid className={classes.buttons} container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />} component={Link} to={`/add?imdb=${movie.IMDb}&year=${movie.Year}&title=${movie.Title}`}>ADD</Button>
+        </Grid>
+        <Grid item xs={4}>
           <Button fullWidth variant="contained" color="primary" startIcon={<AddIcon />} onClick={() => fastAddMovie(movie.IMDb)}>FAST ADD</Button>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Button fullWidth variant="contained" color="secondary" startIcon={<CancelIcon />} onClick={() => blockMovie(movie.IMDb)}>BLOCK</Button>
         </Grid>
       </Grid>
