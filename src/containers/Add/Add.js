@@ -20,7 +20,7 @@ import Aux from './../../hoc/Aux/Aux';
 
 const useStyles = makeStyles((_) => ({
   buttons: {
-    marginTop: '1em',
+    marginTop: '0.5em',
   }
 }));
 
