@@ -1,17 +1,17 @@
-import 'date-fns';
-import React from 'react';
-import { useLocation } from "react-router-dom";
-import QueryString from 'query-string';
-import Grid from '@material-ui/core/Grid';
-import Aux from './../../hoc/Aux/Aux';
-import MovieSearch from './../../components/MovieSearch/MovieSearch';
-import WatchedMovieAdd from './../../components/WatchedMovieAdd/WatchedMovieAdd';
+import 'date-fns'
+import React from 'react'
+import { useLocation } from 'react-router-dom'
+import QueryString from 'query-string'
+import Grid from '@material-ui/core/Grid'
+import Aux from './../../hoc/Aux/Aux'
+import MovieSearch from './../../components/MovieSearch/MovieSearch'
+import WatchedMovieAdd from './../../components/WatchedMovieAdd/WatchedMovieAdd'
 
 const Search = (_) => {
-  const queryParams = QueryString.parse(useLocation().search);
-  const imdb = queryParams['imdb'];
-  const year = queryParams['year'];
-  const title = queryParams['title'];
+  const queryParams = QueryString.parse(useLocation().search)
+  const imdb = queryParams.imdb
+  const year = queryParams.year
+  const title = queryParams.title
 
   return (
     <Aux>
@@ -25,7 +25,7 @@ const Search = (_) => {
         </Grid>
       </Grid>
     </Aux>
-  );
+  )
 }
 
-export default Search;
+export default Search

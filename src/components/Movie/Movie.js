@@ -1,29 +1,29 @@
-import React from 'react';
-import Card from './../Card/Card';
-import Chip from '@material-ui/core/Chip';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import Card from './../Card/Card'
+import Chip from '@material-ui/core/Chip'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((_) => ({
   imdb: {
-    color: 'rgba(0, 0, 0, 0.54)',
+    color: 'rgba(0, 0, 0, 0.54)'
   },
   imdbScore: {
     backgroundColor: '#f8c634',
     color: '#000000',
-    marginRight: '1em',
+    marginRight: '1em'
   },
   amount_of_votes: {
-    marginRight: '1em',
+    marginRight: '1em'
   },
   metascore: {
     backgroundColor: '#333333',
     color: '#fefefe',
-    marginRight: '1em',
-  },
-}));
+    marginRight: '1em'
+  }
+}))
 
 const Movie = (props) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Card>
@@ -36,7 +36,7 @@ const Movie = (props) => {
       <Chip className={classes.metascore} label={props.metascore} />
       {props.children}
     </Card>
-  );
+  )
 }
 
-export default Movie;
+export default Movie

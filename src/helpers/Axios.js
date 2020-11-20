@@ -1,23 +1,23 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const Axios = async (url, method, values = null) => {
-  let res;
+  let res
 
   switch (method) {
     case 'GET':
-      res = await axios.get(`http://localhost:8080${url}`, values);
-      break;
+      res = await axios.get(`http://localhost:8080${url}`, values)
+      break
     case 'POST':
-      res = await axios.post(`http://localhost:8080${url}`, values);
-      break;
+      res = await axios.post(`http://localhost:8080${url}`, values)
+      break
     case 'DELETE':
-      res = await axios.delete(`http://localhost:8080${url}`, values);
-      break;
+      res = await axios.delete(`http://localhost:8080${url}`, values)
+      break
     default:
-      return null;
+      return null
   }
 
-  return res.data;
-};
+  return res.data
+}
 
-export default Axios;
+export default Axios

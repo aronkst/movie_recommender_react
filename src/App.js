@@ -1,40 +1,40 @@
-import React from 'react';
-import Menu from './components/Menu/Menu';
-import WatchedMovies from './containers/WatchedMovies/WatchedMovies';
-import BlockedMovies from './containers/BlockedMovies/BlockedMovies';
-import RecommendedMovies from './containers/RecommendedMovies/RecommendedMovies';
-import Search from './containers/Search/Search';
-import Add from './containers/Add/Add';
-import { Container } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react'
+import Menu from './components/Menu/Menu'
+import WatchedMovies from './containers/WatchedMovies/WatchedMovies'
+import BlockedMovies from './containers/BlockedMovies/BlockedMovies'
+import RecommendedMovies from './containers/RecommendedMovies/RecommendedMovies'
+import Search from './containers/Search/Search'
+import Add from './containers/Add/Add'
+import { Container } from '@material-ui/core'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <Menu />
         <Container>
           <Switch>
-            <Route path="/watched">
+            <Route path='/watched'>
               <WatchedMovies />
             </Route>
-            <Route path="/blocked">
+            <Route path='/blocked'>
               <BlockedMovies />
             </Route>
-            <Route path="/search">
+            <Route path='/search'>
               <Search />
             </Route>
-            <Route path="/add">
+            <Route path='/add'>
               <Add />
             </Route>
-            <Route path="/">
+            <Route path='/'>
               <RecommendedMovies />
             </Route>
           </Switch>
         </Container>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
