@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Movies from './Movies'
 import Button from '@material-ui/core/Button'
-import CancelIcon from '@material-ui/icons/Cancel'
+import BlockIcon from '@material-ui/icons/Block';
 import AddIcon from '@material-ui/icons/Add'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'
@@ -37,7 +37,7 @@ const RecommendedMovies = (_) => {
           <Button fullWidth variant='contained' color='primary' startIcon={<AddIcon />} onClick={() => fastAddMovie(movie.IMDb)}>FAST ADD</Button>
         </Grid>
         <Grid item xs={4}>
-          <Button fullWidth variant='contained' color='secondary' startIcon={<CancelIcon />} onClick={() => blockMovie(movie.IMDb)}>BLOCK</Button>
+          <Button fullWidth variant='contained' color='secondary' startIcon={<BlockIcon />} onClick={() => blockMovie(movie.IMDb)}>BLOCK</Button>
         </Grid>
       </Grid>
     )

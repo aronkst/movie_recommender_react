@@ -3,7 +3,7 @@ import Card from './../Card/Card'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import AddIcon from '@material-ui/icons/Add'
-import CancelIcon from '@material-ui/icons/Cancel'
+import CloseIcon from '@material-ui/icons/Close';
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import DateFnsUtils from '@date-io/date-fns'
@@ -63,7 +63,7 @@ const WatchedMovieAdd = (props) => {
         </FormGroup>
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
-            <Button fullWidth variant='contained' color='secondary' startIcon={<CancelIcon />} component={Link} to='/'>CANCEL</Button>
+            <Button fullWidth variant='contained' color='secondary' startIcon={<CloseIcon />} component={Link} to='/'>CANCEL</Button>
           </Grid>
           <Grid item xs={6}>
             <Button fullWidth variant='contained' color='primary' startIcon={<AddIcon />} type='submit'>ADD</Button>
