@@ -7,6 +7,7 @@ import MovieSearch from './../../components/MovieSearch/MovieSearch'
 import MovieFilter from './../../components/MovieFilter/MovieFilter'
 import Pagination from './../../components/Pagination/Pagination'
 import Axios from './../../helpers/Axios'
+import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
 import { useLocation } from 'react-router-dom'
 import QueryString from 'query-string'
 
@@ -14,6 +15,7 @@ const Movies = (props) => {
   const queryParams = QueryString.parse(useLocation().search)
 
   const [loading, setLoading] = useState(true)
+  const [diolog, setDiolog] = useState(false)
   const [movies, setMovies] = useState([])
   const [params, setParams] = useState({
     title: queryParams.title ? queryParams.title : undefined,
@@ -45,20 +47,57 @@ const Movies = (props) => {
         const form = new FormData()
         form.append('imdb', props.unblock)
         const data = await Axios('/blocked-movies', 'DELETE', { data: form, headers: { 'content-type': 'multipart/form-data' } })
-        if (!data.hasOwnProperty('error')) {
+        if (data.hasOwnProperty('error')) {
+          alert(data.error) // TODO SHOW ERROR
+        } else {
           setMovies(prevMovies => {
             return prevMovies.filter(movie => movie.IMDb !== props.unblock)
           })
-        } else {
-          alert(data.error) // TODO SHOW ERROR
         }
       }
     }
     unblockMovie()
-  }, [props.url, props.unblock])
+  }, [props.unblock])
 
-  // TODO Block
-  // TODO FastAdd
+  useEffect(() => {
+    const blockMovie = async () => {
+      if (props.block) {
+        const form = new FormData()
+        form.append('imdb', props.block)
+        const data = await Axios('/blocked-movies', 'POST', form)
+        if (data.hasOwnProperty('error')) {
+          alert(data.error) // TODO SHOW ERROR
+        } else {
+          setMovies(prevMovies => {
+            return prevMovies.filter(movie => movie.IMDb !== props.block)
+          })
+        }
+      }
+    }
+    blockMovie()
+  }, [props.block])
+
+  useEffect(() => {
+    const fastAddMovie = async () => {
+      if (props.fastAdd) {
+        setDiolog(true)
+        const form = new FormData()
+        form.append('imdb', props.fastAdd)
+        form.append('date', '00000000')
+        form.append('like', '1')
+        const data = await Axios('/watched-movies', 'POST', form)
+        setDiolog(false)
+        if (data.hasOwnProperty('error')) {
+          alert(data.error) // TODO SHOW ERROR
+        } else {
+          setMovies(prevMovies => {
+            return prevMovies.filter(movie => movie.IMDb !== props.fastAdd)
+          })
+        }
+      }
+    }
+    fastAddMovie()
+  }, [props.fastAdd])
 
   return (
     <Aux>
@@ -78,14 +117,14 @@ const Movies = (props) => {
               {movies.length >= 1
                 ? <Pagination page={params.page} maxPages={maxPages} setParams={setParams} />
                 : null}
-            </Aux>
-          }
+            </Aux>}
         </Grid>
         <Grid item md={4} xs={12}>
           <MovieSearch />
           <MovieFilter url={props.url} params={params} setParams={setParams} />
         </Grid>
       </Grid>
+      <SimpleDialog open={diolog} title='ADDING MOVIE ...' />
     </Aux>
   )
 }

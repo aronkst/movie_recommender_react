@@ -38,8 +38,7 @@ const Search = (_) => {
               {movies.slice(0, 10).map(movie => {
                 return <MovieSearched key={movie.IMDb} image={movie.Image} title={movie.Title} year={movie.Year} imdb={movie.IMDb} />
               })}
-            </Aux>
-          }
+            </Aux>}
         </Grid>
         <Grid item xs={4}>
           <MovieSearch />

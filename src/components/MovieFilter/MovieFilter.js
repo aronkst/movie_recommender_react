@@ -13,7 +13,7 @@ const useStyles = makeStyles((_) => ({
   },
   marginTop: {
     marginTop: '1em'
-  },
+  }
 }))
 
 const MovieFilter = (props) => {

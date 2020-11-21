@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import Button from '@material-ui/core/Button'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((_) => ({
   box: {
-    marginTop: '1em',
+    marginTop: '1em'
   },
   button: {
     minWidth: '0'
-  },
+  }
 }))
 
 const Pagination = (props) => {
@@ -20,7 +20,7 @@ const Pagination = (props) => {
   const [buttons, setButtons] = useState([])
 
   useEffect(() => {
-    let pagination = []
+    const pagination = []
     if (props.maxPages >= 7) {
       for (let i = 1; i <= 7; i++) {
         pagination.push(i)
@@ -47,17 +47,21 @@ const Pagination = (props) => {
 
   const button = (page, index) => {
     const variant = page === props.page ? 'contained' : null
-    const disabled = page === '...' ? true : false
-    return <Button key={index} className={classes.button} variant={variant} color="primary" disabled={disabled} onClick={() => setPage(page)}>{page}</Button>
+    const disabled = page === '...'
+    return <Button key={index} className={classes.button} variant={variant} color='primary' disabled={disabled} onClick={() => setPage(page)}>{page}</Button>
   }
 
-  const buttonLeft = <Button className={classes.button} disabled={props.page <= 1} onClick={() => setPage(props.page - 1)}>
-    <ChevronLeftIcon />
-  </Button>
+  const buttonLeft = (
+    <Button className={classes.button} disabled={props.page <= 1} onClick={() => setPage(props.page - 1)}>
+      <ChevronLeftIcon />
+    </Button>
+  )
 
-  const buttonRight = <Button className={classes.button} disabled={props.page >= props.maxPages} onClick={() => setPage(props.page + 1)}>
-    <ChevronRightIcon />
-  </Button>
+  const buttonRight = (
+    <Button className={classes.button} disabled={props.page >= props.maxPages} onClick={() => setPage(props.page + 1)}>
+      <ChevronRightIcon />
+    </Button>
+  )
 
   const setPage = (page) => {
     props.setParams(prevParams => ({
@@ -66,11 +70,13 @@ const Pagination = (props) => {
     }))
   }
 
-  return <Box display="flex" justifyContent="center" className={classes.box}>
-    {buttonLeft}
-    {buttons.map((page, index) => button(page, index))}
-    {buttonRight}
-  </Box>
+  return (
+    <Box display='flex' justifyContent='center' className={classes.box}>
+      {buttonLeft}
+      {buttons.map((page, index) => button(page, index))}
+      {buttonRight}
+    </Box>
+  )
 }
 
 export default Pagination

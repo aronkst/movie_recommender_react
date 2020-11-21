@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
-import ListMovies from './../../components/ListMovies/ListMovies'
-import Grid from '@material-ui/core/Grid'
+import Movies from './Movies'
 import Button from '@material-ui/core/Button'
 import CancelIcon from '@material-ui/icons/Cancel'
 import AddIcon from '@material-ui/icons/Add'
-import Axios from './../../helpers/Axios'
-import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
-import Aux from './../../hoc/Aux/Aux'
-import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((_) => ({
   buttons: {
@@ -19,28 +16,15 @@ const useStyles = makeStyles((_) => ({
 const RecommendedMovies = (_) => {
   const classes = useStyles()
 
-  const [imdb, setIMDb] = useState('')
-  const [openDialog, setOpenDialog] = useState(false)
-
-  const fastAddMovie = async (imdb) => {
-    setOpenDialog(true)
-    const form = new FormData()
-    form.append('imdb', imdb)
-    form.append('like', 1)
-    const data = await Axios('/watched-movies', 'POST', form)
-    if (!data.hasOwnProperty('error')) {
-      setIMDb(imdb)
-    }
-    setOpenDialog(false)
-  }
+  const [block, setBlock] = useState(null)
+  const [fastAdd, setFastAdd] = useState(null)
 
   const blockMovie = async (imdb) => {
-    const form = new FormData()
-    form.append('imdb', imdb)
-    const data = await Axios('/not-watch', 'POST', form)
-    if (!data.hasOwnProperty('error')) {
-      setIMDb(imdb)
-    }
+    setBlock(imdb)
+  }
+
+  const fastAddMovie = async (imdb) => {
+    setFastAdd(imdb)
   }
 
   const options = (movie) => {
@@ -60,10 +44,7 @@ const RecommendedMovies = (_) => {
   }
 
   return (
-    <Aux>
-      <ListMovies title='RECOMMENDED MOVIES' url='/recommended-movies' options={options} removeIMDb={imdb} />
-      <SimpleDialog open={openDialog} title='ADDING MOVIE' />
-    </Aux>
+    <Movies title='RECOMMENDED MOVIES' url='/recommended-movies' options={options} block={block} fastAdd={fastAdd} />
   )
 }
 

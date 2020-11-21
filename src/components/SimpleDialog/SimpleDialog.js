@@ -13,7 +13,7 @@ const useStyles = makeStyles((_) => ({
   }
 }))
 
-const ListMovies = (props) => {
+const SimpleDialog = (props) => {
   const classes = useStyles()
 
   return (
@@ -30,4 +30,4 @@ const ListMovies = (props) => {
   )
 }
 
-export default ListMovies
+export default SimpleDialog
