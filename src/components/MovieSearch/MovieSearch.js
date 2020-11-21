@@ -40,7 +40,7 @@ const MovieSearch = (props) => {
       <p>FILL IN THE FIELD BELOW TO SEARCH THE MOVIE THAT YOU WANT TO ADD AS WATCHED.</p>
       <form onSubmit={handleSubmit}>
         <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} name='title' label='TITLE' onChange={handleOnChange} value={title} />
-        <Button fullWidth variant='contained' color='primary' startIcon={<SearchIcon />} className={classes.marginTop} type="submit">SEARCH</Button>
+        <Button fullWidth variant='contained' color='primary' startIcon={<SearchIcon />} className={classes.marginTop} type='submit'>SEARCH</Button>
       </form>
     </Card>
   )

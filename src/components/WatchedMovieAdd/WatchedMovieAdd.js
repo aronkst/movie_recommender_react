@@ -8,11 +8,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import DateFnsUtils from '@date-io/date-fns'
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
 import FormGroup from '@material-ui/core/FormGroup'
-import Axios from './../../helpers/Axios'
 
 const useStyles = makeStyles((_) => ({
   buttons: {
@@ -23,11 +21,8 @@ const useStyles = makeStyles((_) => ({
 const WatchedMovieAdd = (props) => {
   const classes = useStyles()
 
-  const history = useHistory()
-
-  const [loading, setLoading] = useState(false)
-  const [date, setDate] = React.useState(new Date())
-  const [like, setLike] = React.useState(true)
+  const [date, setDate] = useState(new Date())
+  const [like, setLike] = useState(true)
 
   const handleDate = (date) => {
     setDate(date)
@@ -38,23 +33,21 @@ const WatchedMovieAdd = (props) => {
   }
 
   const dateToString = (date) => {
-    const mm = date.getMonth() + 1
-    const dd = date.getDate()
-    return [date.getFullYear(), (mm > 9 ? '' : '0') + mm, (dd > 9 ? '' : '0') + dd].join('')
+    if (date) {
+      const mm = date.getMonth() + 1
+      const dd = date.getDate()
+      return [date.getFullYear(), (mm > 9 ? '' : '0') + mm, (dd > 9 ? '' : '0') + dd].join('')
+    } else {
+      return '00000000'
+    }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    setLoading(true)
-    const form = new FormData()
-    form.append('imdb', props.imdb)
-    form.append('date', dateToString(date))
-    form.append('like', like ? '1' : '0')
-    const data = await Axios('/watched-movies', 'POST', form)
-    setLoading(false)
-    if (!data.hasOwnProperty('error')) {
-      history.push('/')
-    }
+    props.setForm({
+      date: dateToString(date),
+      like: like ? '1' : '0'
+    })
   }
 
   return (
@@ -66,7 +59,7 @@ const WatchedMovieAdd = (props) => {
           </MuiPickersUtilsProvider>
         </FormGroup>
         <FormGroup row>
-          <FormControlLabel control={<Switch checked={like} onChange={handleLike} name='like' />} label='DID YOU LIKE THIS MOVIE?' />
+          <FormControlLabel control={<Switch checked={like} onChange={handleLike} name='like' color='primary' />} label='DID YOU LIKE THIS MOVIE?' />
         </FormGroup>
         <Grid container spacing={2} className={classes.buttons}>
           <Grid item xs={6}>
@@ -77,7 +70,6 @@ const WatchedMovieAdd = (props) => {
           </Grid>
         </Grid>
       </form>
-      <SimpleDialog open={loading} title='ADDING MOVIE' />
     </Card>
   )
 }

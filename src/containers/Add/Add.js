@@ -1,11 +1,12 @@
-import 'date-fns'
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
 import QueryString from 'query-string'
 import Grid from '@material-ui/core/Grid'
 import Aux from './../../hoc/Aux/Aux'
 import MovieSearch from './../../components/MovieSearch/MovieSearch'
 import WatchedMovieAdd from './../../components/WatchedMovieAdd/WatchedMovieAdd'
+import Axios from './../../helpers/Axios'
+import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search)
@@ -13,17 +14,43 @@ const Search = (_) => {
   const year = queryParams.year
   const title = queryParams.title
 
+  const history = useHistory()
+
+  const [dialog, setDialog] = useState(false)
+  const [form, setForm] = useState(null)
+
+  useEffect(() => {
+    const addWatchedMovie = async () => {
+      if (form && form.date && form.like) {
+        setDialog(true)
+        const formData = new FormData()
+        formData.append('imdb', imdb)
+        formData.append('date', form.date)
+        formData.append('like', form.like)
+        const data = await Axios('/watched-movies', 'POST', formData)
+        setDialog(false)
+        if (data.hasOwnProperty('error')) {
+          alert(data.error) // TODO ERROR
+        } else {
+          history.push('/')
+        }
+      }
+    }
+    addWatchedMovie()
+  }, [form, history, imdb])
+
   return (
     <Aux>
       <h1>ADD: {title} ({year})</h1>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <WatchedMovieAdd imdb={imdb} />
+          <WatchedMovieAdd imdb={imdb} setForm={setForm} />
         </Grid>
         <Grid item xs={4}>
           <MovieSearch />
         </Grid>
       </Grid>
+      <SimpleDialog open={dialog} title='ADDING MOVIE ...' />
     </Aux>
   )
 }
