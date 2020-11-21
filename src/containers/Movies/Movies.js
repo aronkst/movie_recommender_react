@@ -39,8 +39,25 @@ const Movies = (props) => {
     getMovies()
   }, [props.url, params])
 
+  useEffect(() => {
+    const unblockMovie = async () => {
+      if (props.unblock) {
+        const form = new FormData()
+        form.append('imdb', props.unblock)
+        const data = await Axios('/blocked-movies', 'DELETE', { data: form, headers: { 'content-type': 'multipart/form-data' } })
+        if (!data.hasOwnProperty('error')) {
+          setMovies(prevMovies => {
+            return prevMovies.filter(movie => movie.IMDb !== props.unblock)
+          })
+        } else {
+          alert(data.error) // TODO SHOW ERROR
+        }
+      }
+    }
+    unblockMovie()
+  }, [props.url, props.unblock])
+
   // TODO Block
-  // TODO Unblock
   // TODO FastAdd
 
   return (
@@ -54,11 +71,13 @@ const Movies = (props) => {
               {movies.map(movie => {
                 return (
                   <Movie key={movie.ID} cover={movie.Cover} title={movie.Title} year={movie.Year} imdb={movie.IMDb} summary={movie.Summary} genres={movie.Genres} score={movie.Score} amountOfVotes={movie.AmountOfVotes} metascore={movie.Metascore}>
-                    {props.children}
+                    {props.options ? props.options(movie) : null}
                   </Movie>
                 )
               })}
-              <Pagination page={params.page} maxPages={maxPages} setParams={setParams} />
+              {movies.length >= 1
+                ? <Pagination page={params.page} maxPages={maxPages} setParams={setParams} />
+                : null}
             </Aux>
           }
         </Grid>

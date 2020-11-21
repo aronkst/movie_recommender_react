@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import ListMovies from './../../components/ListMovies/ListMovies'
-import Axios from './../../helpers/Axios'
+import Movies from './Movies'
 import Button from '@material-ui/core/Button'
 import CancelIcon from '@material-ui/icons/Cancel'
 import { makeStyles } from '@material-ui/core/styles'
@@ -11,18 +10,13 @@ const useStyles = makeStyles((_) => ({
   }
 }))
 
-const BlockedMovies = (_) => {
+const WatchedMovies = (_) => {
   const classes = useStyles()
 
-  const [imdb, setIMDb] = useState('')
+  const [unblock, setUnblock] = useState(null)
 
   const unblockMovie = async (imdb) => {
-    const form = new FormData()
-    form.append('imdb', imdb)
-    const data = await Axios('/not-watch', 'DELETE', { data: form, headers: { 'content-type': 'multipart/form-data' } })
-    if (!data.hasOwnProperty('error')) {
-      setIMDb(imdb)
-    }
+    setUnblock(imdb)
   }
 
   const options = (movie) => {
@@ -32,8 +26,8 @@ const BlockedMovies = (_) => {
   }
 
   return (
-    <ListMovies title='BLOCKED MOVIES' url='/not-watch' options={options} removeIMDb={imdb} />
+    <Movies title='BLOCKED MOVIES' url='/blocked-movies' options={options} unblock={unblock} />
   )
 }
 
-export default BlockedMovies
+export default WatchedMovies

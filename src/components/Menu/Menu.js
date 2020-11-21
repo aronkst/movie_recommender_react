@@ -30,7 +30,7 @@ const Menu = (_) => {
           <Typography className={classes.typography} variant='h6' noWrap>movie_recommender</Typography>
           <Button className={classes.button} color='inherit' component={Link} to='/watched-movies'>WATCHED</Button>
           <Button className={classes.button} color='inherit' component={Link} to='/'>RECOMMENDED</Button>
-          <Button className={classes.button} color='inherit' component={Link} to='/blocked'>BLOCKED</Button>
+          <Button className={classes.button} color='inherit' component={Link} to='/blocked-movies'>BLOCKED</Button>
         </Toolbar>
       </AppBar>
     </Aux>
