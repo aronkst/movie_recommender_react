@@ -14,14 +14,17 @@ const DialogLoading = (props) => {
   const classes = useStyles()
 
   const content = (
-    <Box display='flex' justifyContent='center' alignItems='center' className={classes.box}>
+    <Box
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+      className={classes.box}
+    >
       <CircularProgress />
     </Box>
   )
 
-  return (
-    <Dialog open={props.open} title={props.title} content={content} />
-  )
+  return <Dialog open={props.open} title={props.title} content={content} />
 }
 
 export default DialogLoading

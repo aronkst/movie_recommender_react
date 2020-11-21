@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 
 const DialogError = (props) => {
   const handleClose = () => {
-    props.setError(prevError => ({
+    props.setError((prevError) => ({
       ...prevError,
       open: false
     }))
@@ -13,12 +13,19 @@ const DialogError = (props) => {
 
   const actions = (
     <Aux>
-      <Button onClick={handleClose} color='primary' autoFocus>OK</Button>
+      <Button onClick={handleClose} color='primary' autoFocus>
+        OK
+      </Button>
     </Aux>
   )
 
   return (
-    <Dialog open={props.open} title={props.title} content={props.message} actions={actions} />
+    <Dialog
+      open={props.open}
+      title={props.title}
+      content={props.message}
+      actions={actions}
+    />
   )
 }
 

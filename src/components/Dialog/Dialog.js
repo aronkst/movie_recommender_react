@@ -12,13 +12,13 @@ const DialogLoading = (props) => {
       <Dialog open={props.open}>
         <DialogTitle>{props.title.toUpperCase()}</DialogTitle>
         <DialogContent>
-          {typeof (props.content) === 'string'
-            ? <DialogContentText>{props.content.toUpperCase()}</DialogContentText>
-            : <Aux>{props.content}</Aux>}
+          {typeof props.content === 'string' ? (
+            <DialogContentText>{props.content.toUpperCase()}</DialogContentText>
+          ) : (
+            <Aux>{props.content}</Aux>
+          )}
         </DialogContent>
-        {props.actions
-          ? <DialogActions>{props.actions}</DialogActions>
-          : null}
+        {props.actions ? <DialogActions>{props.actions}</DialogActions> : null}
       </Dialog>
     </Aux>
   )

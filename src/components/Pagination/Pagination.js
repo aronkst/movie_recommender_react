@@ -30,7 +30,8 @@ const Pagination = (props) => {
       pagination[2] = props.page <= 3 ? 3 : props.page - 1
       pagination[3] = props.page <= 4 ? 4 : props.page
       pagination[4] = props.page <= 4 ? 5 : props.page + 1
-      pagination[5] = props.page >= props.maxPages - 3 ? props.maxPages - 1 : '...'
+      pagination[5] =
+        props.page >= props.maxPages - 3 ? props.maxPages - 1 : '...'
       pagination[6] = props.maxPages
       if (props.page >= props.maxPages - 3) {
         pagination[2] = props.maxPages - 4
@@ -48,23 +49,42 @@ const Pagination = (props) => {
   const button = (page, index) => {
     const variant = page === props.page ? 'contained' : null
     const disabled = page === '...'
-    return <Button key={index} className={classes.button} variant={variant} color='primary' disabled={disabled} onClick={() => setPage(page)}>{page}</Button>
+    return (
+      <Button
+        key={index}
+        className={classes.button}
+        variant={variant}
+        color='primary'
+        disabled={disabled}
+        onClick={() => setPage(page)}
+      >
+        {page}
+      </Button>
+    )
   }
 
   const buttonLeft = (
-    <Button className={classes.button} disabled={props.page <= 1} onClick={() => setPage(props.page - 1)}>
+    <Button
+      className={classes.button}
+      disabled={props.page <= 1}
+      onClick={() => setPage(props.page - 1)}
+    >
       <ChevronLeftIcon />
     </Button>
   )
 
   const buttonRight = (
-    <Button className={classes.button} disabled={props.page >= props.maxPages} onClick={() => setPage(props.page + 1)}>
+    <Button
+      className={classes.button}
+      disabled={props.page >= props.maxPages}
+      onClick={() => setPage(props.page + 1)}
+    >
       <ChevronRightIcon />
     </Button>
   )
 
   const setPage = (page) => {
-    props.setParams(prevParams => ({
+    props.setParams((prevParams) => ({
       ...prevParams,
       page: page
     }))

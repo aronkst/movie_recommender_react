@@ -16,9 +16,7 @@ const Card = (props) => {
 
   return (
     <Paper elevation={3} className={classes.paper}>
-      <div className={classes.div}>
-        {props.children}
-      </div>
+      <div className={classes.div}>{props.children}</div>
     </Paper>
   )
 }

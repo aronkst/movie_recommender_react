@@ -37,10 +37,31 @@ const MovieSearch = (props) => {
   return (
     <Card>
       <h2 className={classes.title}>ADD WATCHED MOVIE</h2>
-      <p>FILL IN THE FIELD BELOW TO SEARCH THE MOVIE THAT YOU WANT TO ADD AS WATCHED.</p>
+      <p>
+        FILL IN THE FIELD BELOW TO SEARCH THE MOVIE THAT YOU WANT TO ADD AS
+        WATCHED.
+      </p>
       <form onSubmit={handleSubmit}>
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} name='title' label='TITLE' onChange={handleOnChange} value={title} />
-        <Button fullWidth variant='contained' color='primary' startIcon={<SearchIcon />} className={classes.marginTop} type='submit'>SEARCH</Button>
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          name='title'
+          label='TITLE'
+          onChange={handleOnChange}
+          value={title}
+        />
+        <Button
+          fullWidth
+          variant='contained'
+          color='primary'
+          startIcon={<SearchIcon />}
+          className={classes.marginTop}
+          type='submit'
+        >
+          SEARCH
+        </Button>
       </form>
     </Card>
   )

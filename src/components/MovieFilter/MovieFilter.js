@@ -38,19 +38,87 @@ const MovieFilter = (props) => {
       <h2 className={classes.title}>MOVIES FILTER</h2>
       <p>FILL IN THE FIELDS BELOW TO FILTER THE MOVIES ON THE SIDE.</p>
       <form onSubmit={handleSubmit}>
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} label='TITLE' name='title' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} label='SUMMARY' name='summary' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} type='number' label='YEAR' name='year' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} label='IMDB' name='imdb' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} label='GENRE' name='genre' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} type='number' label='SCORE' name='score' />
-        <TextField className={classes.marginTop} fullWidth variant='outlined' InputLabelProps={{ shrink: true }} type='number' label='METASCORE' name='metascore' />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          label='TITLE'
+          name='title'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          label='SUMMARY'
+          name='summary'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          type='number'
+          label='YEAR'
+          name='year'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          label='IMDB'
+          name='imdb'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          label='GENRE'
+          name='genre'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          type='number'
+          label='SCORE'
+          name='score'
+        />
+        <TextField
+          className={classes.marginTop}
+          fullWidth
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
+          type='number'
+          label='METASCORE'
+          name='metascore'
+        />
         <Grid container spacing={2} className={classes.marginTop}>
           <Grid item xs={6}>
-            <Button fullWidth variant='contained' color='secondary' startIcon={<ReplayIcon />} type='reset'>RESET</Button>
+            <Button
+              fullWidth
+              variant='contained'
+              color='secondary'
+              startIcon={<ReplayIcon />}
+              type='reset'
+            >
+              RESET
+            </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button fullWidth variant='contained' color='primary' startIcon={<SearchIcon />} type='submit'>FILTER</Button>
+            <Button
+              fullWidth
+              variant='contained'
+              color='primary'
+              startIcon={<SearchIcon />}
+              type='submit'
+            >
+              FILTER
+            </Button>
           </Grid>
         </Grid>
       </form>
