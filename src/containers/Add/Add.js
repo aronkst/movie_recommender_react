@@ -4,9 +4,9 @@ import QueryString from 'query-string'
 import Grid from '@material-ui/core/Grid'
 import Aux from './../../hoc/Aux/Aux'
 import MovieSearch from './../../components/MovieSearch/MovieSearch'
-import WatchedMovieAdd from './../../components/WatchedMovieAdd/WatchedMovieAdd'
+import MovieForm from './../../components/MovieForm/MovieForm'
 import Axios from './../../helpers/Axios'
-import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
+import DialogLoading from './../../components/DialogLoading/DialogLoading'
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search)
@@ -44,13 +44,13 @@ const Search = (_) => {
       <h1>ADD: {title} ({year})</h1>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <WatchedMovieAdd imdb={imdb} setForm={setForm} />
+          <MovieForm imdb={imdb} setForm={setForm} />
         </Grid>
         <Grid item xs={4}>
           <MovieSearch />
         </Grid>
       </Grid>
-      <SimpleDialog open={dialog} title='ADDING MOVIE ...' />
+      <DialogLoading open={dialog} title='ADDING MOVIE ...' />
     </Aux>
   )
 }

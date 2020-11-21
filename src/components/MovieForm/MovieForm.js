@@ -18,7 +18,7 @@ const useStyles = makeStyles((_) => ({
   }
 }))
 
-const WatchedMovieAdd = (props) => {
+const MovieForm = (props) => {
   const classes = useStyles()
 
   const [date, setDate] = useState(new Date())
@@ -74,4 +74,4 @@ const WatchedMovieAdd = (props) => {
   )
 }
 
-export default WatchedMovieAdd
+export default MovieForm

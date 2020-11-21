@@ -7,7 +7,7 @@ import MovieSearch from './../../components/MovieSearch/MovieSearch'
 import MovieFilter from './../../components/MovieFilter/MovieFilter'
 import Pagination from './../../components/Pagination/Pagination'
 import Axios from './../../helpers/Axios'
-import SimpleDialog from './../../components/SimpleDialog/SimpleDialog'
+import DialogLoading from './../../components/DialogLoading/DialogLoading'
 import { useLocation } from 'react-router-dom'
 import QueryString from 'query-string'
 
@@ -124,7 +124,7 @@ const Movies = (props) => {
           <MovieFilter url={props.url} params={params} setParams={setParams} />
         </Grid>
       </Grid>
-      <SimpleDialog open={diolog} title='ADDING MOVIE ...' />
+      <DialogLoading open={diolog} title='ADDING MOVIE ...' />
     </Aux>
   )
 }

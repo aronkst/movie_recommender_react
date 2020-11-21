@@ -13,7 +13,7 @@ const useStyles = makeStyles((_) => ({
   }
 }))
 
-const SimpleDialog = (props) => {
+const DialogLoading = (props) => {
   const classes = useStyles()
 
   return (
@@ -30,4 +30,4 @@ const SimpleDialog = (props) => {
   )
 }
 
-export default SimpleDialog
+export default DialogLoading
