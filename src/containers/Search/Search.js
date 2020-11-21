@@ -24,7 +24,9 @@ const Search = (_) => {
     const getData = async () => {
       if (title) {
         setLoading(true)
-        const data = await Axios('/search', 'GET', { params: { title: title } })
+        const data = await Axios('/search', 'GET', {
+          params: { title: title }
+        })
         setLoading(false)
         if (data.hasOwnProperty('error')) {
           setDialogError({
@@ -35,7 +37,6 @@ const Search = (_) => {
           setMovies(data.slice(0, 20))
         }
       }
-      
     }
     getData()
   }, [title])
@@ -45,19 +46,34 @@ const Search = (_) => {
       <h1>SEARCHED BY: {title}</h1>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          {loading
-            ? <CircularProgress />
-            : <Aux>
-              {movies.map(movie => {
-                return <MovieSearched key={movie.IMDb} image={movie.Image} title={movie.Title} year={movie.Year} imdb={movie.IMDb} />
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <Aux>
+              {movies.map((movie) => {
+                return (
+                  <MovieSearched
+                    key={movie.IMDb}
+                    image={movie.Image}
+                    title={movie.Title}
+                    year={movie.Year}
+                    imdb={movie.IMDb}
+                  />
+                )
               })}
-            </Aux>}
+            </Aux>
+          )}
         </Grid>
         <Grid item xs={4}>
           <MovieSearch title={title} />
         </Grid>
       </Grid>
-      <DialogError open={dialogError.open} title='ERROR' message={dialogError.message} setError={setDialogError} />
+      <DialogError
+        open={dialogError.open}
+        title='ERROR'
+        message={dialogError.message}
+        setError={setDialogError}
+      />
     </Aux>
   )
 }

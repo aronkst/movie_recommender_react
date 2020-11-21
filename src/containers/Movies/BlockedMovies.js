@@ -21,12 +21,26 @@ const WatchedMovies = (_) => {
 
   const options = (movie) => {
     return (
-      <Button className={classes.button} fullWidth variant='contained' color='secondary' startIcon={<BlockIcon />} onClick={() => unblockMovie(movie.IMDb)}>UNBLOCK</Button>
+      <Button
+        className={classes.button}
+        fullWidth
+        variant='contained'
+        color='secondary'
+        startIcon={<BlockIcon />}
+        onClick={() => unblockMovie(movie.IMDb)}
+      >
+        UNBLOCK
+      </Button>
     )
   }
 
   return (
-    <Movies title='BLOCKED MOVIES' url='/blocked-movies' options={options} unblock={unblock} />
+    <Movies
+      title='BLOCKED MOVIES'
+      url='/blocked-movies'
+      options={options}
+      unblock={unblock}
+    />
   )
 }
 

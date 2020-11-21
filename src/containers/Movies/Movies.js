@@ -51,15 +51,18 @@ const Movies = (props) => {
       if (props.unblock) {
         const form = new FormData()
         form.append('imdb', props.unblock)
-        const data = await Axios('/blocked-movies', 'DELETE', { data: form, headers: { 'content-type': 'multipart/form-data' } })
+        const data = await Axios('/blocked-movies', 'DELETE', {
+          data: form,
+          headers: { 'content-type': 'multipart/form-data' }
+        })
         if (data.hasOwnProperty('error')) {
           setDialogError({
             open: true,
             message: data.error
           })
         } else {
-          setMovies(prevMovies => {
-            return prevMovies.filter(movie => movie.IMDb !== props.unblock)
+          setMovies((prevMovies) => {
+            return prevMovies.filter((movie) => movie.IMDb !== props.unblock)
           })
         }
       }
@@ -79,8 +82,8 @@ const Movies = (props) => {
             message: data.error
           })
         } else {
-          setMovies(prevMovies => {
-            return prevMovies.filter(movie => movie.IMDb !== props.block)
+          setMovies((prevMovies) => {
+            return prevMovies.filter((movie) => movie.IMDb !== props.block)
           })
         }
       }
@@ -104,8 +107,8 @@ const Movies = (props) => {
             message: data.error
           })
         } else {
-          setMovies(prevMovies => {
-            return prevMovies.filter(movie => movie.IMDb !== props.fastAdd)
+          setMovies((prevMovies) => {
+            return prevMovies.filter((movie) => movie.IMDb !== props.fastAdd)
           })
         }
       }
@@ -118,20 +121,37 @@ const Movies = (props) => {
       <h1>{props.title}</h1>
       <Grid container spacing={2}>
         <Grid item md={8} xs={12}>
-          {loading
-            ? <CircularProgress />
-            : <Aux>
-              {movies.map(movie => {
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <Aux>
+              {movies.map((movie) => {
                 return (
-                  <Movie key={movie.ID} cover={movie.Cover} title={movie.Title} year={movie.Year} imdb={movie.IMDb} summary={movie.Summary} genres={movie.Genres} score={movie.Score} amountOfVotes={movie.AmountOfVotes} metascore={movie.Metascore}>
+                  <Movie
+                    key={movie.ID}
+                    cover={movie.Cover}
+                    title={movie.Title}
+                    year={movie.Year}
+                    imdb={movie.IMDb}
+                    summary={movie.Summary}
+                    genres={movie.Genres}
+                    score={movie.Score}
+                    amountOfVotes={movie.AmountOfVotes}
+                    metascore={movie.Metascore}
+                  >
                     {props.options ? props.options(movie) : null}
                   </Movie>
                 )
               })}
-              {movies.length >= 1
-                ? <Pagination page={params.page} maxPages={maxPages} setParams={setParams} />
-                : null}
-            </Aux>}
+              {movies.length >= 1 ? (
+                <Pagination
+                  page={params.page}
+                  maxPages={maxPages}
+                  setParams={setParams}
+                />
+              ) : null}
+            </Aux>
+          )}
         </Grid>
         <Grid item md={4} xs={12}>
           <MovieSearch />
@@ -139,7 +159,12 @@ const Movies = (props) => {
         </Grid>
       </Grid>
       <DialogLoading open={dialogLoading} title='ADDING MOVIE ...' />
-      <DialogError open={dialogError.open} title='ERROR' message={dialogError.message} setError={setDialogError} />
+      <DialogError
+        open={dialogError.open}
+        title='ERROR'
+        message={dialogError.message}
+        setError={setDialogError}
+      />
     </Aux>
   )
 }

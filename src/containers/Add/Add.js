@@ -49,7 +49,9 @@ const Search = (_) => {
 
   return (
     <Aux>
-      <h1>ADD: {title} ({year})</h1>
+      <h1>
+        ADD: {title} ({year})
+      </h1>
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <MovieForm imdb={imdb} setForm={setForm} />
@@ -59,7 +61,12 @@ const Search = (_) => {
         </Grid>
       </Grid>
       <DialogLoading open={dialogLoading} title='ADDING MOVIE ...' />
-      <DialogError open={dialogError.open} title='ERROR' message={dialogError.message} setError={setDialogError} />
+      <DialogError
+        open={dialogError.open}
+        title='ERROR'
+        message={dialogError.message}
+        setError={setDialogError}
+      />
     </Aux>
   )
 }

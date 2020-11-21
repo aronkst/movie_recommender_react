@@ -31,20 +31,51 @@ const RecommendedMovies = (_) => {
     return (
       <Grid className={classes.buttons} container spacing={2}>
         <Grid item xs={4}>
-          <Button fullWidth variant='contained' color='primary' startIcon={<AddIcon />} component={Link} to={`/add?imdb=${movie.IMDb}&year=${movie.Year}&title=${movie.Title}`}>ADD</Button>
+          <Button
+            fullWidth
+            variant='contained'
+            color='primary'
+            startIcon={<AddIcon />}
+            component={Link}
+            to={`/add?imdb=${movie.IMDb}&year=${movie.Year}&title=${movie.Title}`}
+          >
+            ADD
+          </Button>
         </Grid>
         <Grid item xs={4}>
-          <Button fullWidth variant='contained' color='primary' startIcon={<AddIcon />} onClick={() => fastAddMovie(movie.IMDb)}>FAST ADD</Button>
+          <Button
+            fullWidth
+            variant='contained'
+            color='primary'
+            startIcon={<AddIcon />}
+            onClick={() => fastAddMovie(movie.IMDb)}
+          >
+            FAST ADD
+          </Button>
         </Grid>
         <Grid item xs={4}>
-          <Button fullWidth variant='contained' color='secondary' startIcon={<BlockIcon />} onClick={() => blockMovie(movie.IMDb)}>BLOCK</Button>
+          <Button
+            fullWidth
+            variant='contained'
+            color='secondary'
+            startIcon={<BlockIcon />}
+            onClick={() => blockMovie(movie.IMDb)}
+          >
+            BLOCK
+          </Button>
         </Grid>
       </Grid>
     )
   }
 
   return (
-    <Movies title='RECOMMENDED MOVIES' url='/recommended-movies' options={options} block={block} fastAdd={fastAdd} />
+    <Movies
+      title='RECOMMENDED MOVIES'
+      url='/recommended-movies'
+      options={options}
+      block={block}
+      fastAdd={fastAdd}
+    />
   )
 }
 
