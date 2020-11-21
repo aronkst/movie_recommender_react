@@ -3,7 +3,7 @@ import Card from './../Card/Card'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import AddIcon from '@material-ui/icons/Add'
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import DateFnsUtils from '@date-io/date-fns'

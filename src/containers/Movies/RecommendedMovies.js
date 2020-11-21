@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Movies from './Movies'
 import Button from '@material-ui/core/Button'
-import BlockIcon from '@material-ui/icons/Block';
+import BlockIcon from '@material-ui/icons/Block'
 import AddIcon from '@material-ui/icons/Add'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'

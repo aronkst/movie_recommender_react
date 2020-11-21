@@ -7,6 +7,7 @@ import MovieSearch from './../../components/MovieSearch/MovieSearch'
 import MovieForm from './../../components/MovieForm/MovieForm'
 import Axios from './../../helpers/Axios'
 import DialogLoading from './../../components/DialogLoading/DialogLoading'
+import DialogError from './../../components/DialogError/DialogError'
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search)
@@ -16,21 +17,28 @@ const Search = (_) => {
 
   const history = useHistory()
 
-  const [dialog, setDialog] = useState(false)
+  const [dialogLoading, setDialogLoading] = useState(false)
+  const [dialogError, setDialogError] = useState({
+    open: false,
+    message: ''
+  })
   const [form, setForm] = useState(null)
 
   useEffect(() => {
     const addWatchedMovie = async () => {
       if (form && form.date && form.like) {
-        setDialog(true)
+        setDialogLoading(true)
         const formData = new FormData()
         formData.append('imdb', imdb)
         formData.append('date', form.date)
         formData.append('like', form.like)
         const data = await Axios('/watched-movies', 'POST', formData)
-        setDialog(false)
+        setDialogLoading(false)
         if (data.hasOwnProperty('error')) {
-          alert(data.error) // TODO ERROR
+          setDialogError({
+            open: true,
+            message: data.error
+          })
         } else {
           history.push('/')
         }
@@ -50,7 +58,8 @@ const Search = (_) => {
           <MovieSearch />
         </Grid>
       </Grid>
-      <DialogLoading open={dialog} title='ADDING MOVIE ...' />
+      <DialogLoading open={dialogLoading} title='ADDING MOVIE ...' />
+      <DialogError open={dialogError.open} title='ERROR' message={dialogError.message} setError={setDialogError} />
     </Aux>
   )
 }

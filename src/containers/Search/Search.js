@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import MovieSearched from './../../components/MovieSearched/MovieSearched'
 import MovieSearch from './../../components/MovieSearch/MovieSearch'
 import Grid from '@material-ui/core/Grid'
+import DialogError from './../../components/DialogError/DialogError'
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search)
@@ -14,15 +15,27 @@ const Search = (_) => {
 
   const [loading, setLoading] = useState(true)
   const [movies, setMovies] = useState([])
+  const [dialogError, setDialogError] = useState({
+    open: false,
+    message: ''
+  })
 
   useEffect(() => {
     const getData = async () => {
-      setLoading(true)
       if (title) {
+        setLoading(true)
         const data = await Axios('/search', 'GET', { params: { title: title } })
-        setMovies(data.slice(0, 20))
+        setLoading(false)
+        if (data.hasOwnProperty('error')) {
+          setDialogError({
+            open: true,
+            message: data.error
+          })
+        } else {
+          setMovies(data.slice(0, 20))
+        }
       }
-      setLoading(false)
+      
     }
     getData()
   }, [title])
@@ -44,6 +57,7 @@ const Search = (_) => {
           <MovieSearch title={title} />
         </Grid>
       </Grid>
+      <DialogError open={dialogError.open} title='ERROR' message={dialogError.message} setError={setDialogError} />
     </Aux>
   )
 }
