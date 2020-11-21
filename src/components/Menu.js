@@ -1,5 +1,5 @@
 import React from 'react'
-import Aux from './../../hoc/Aux/Aux'
+import Aux from './../hoc/Aux'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'

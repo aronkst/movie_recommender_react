@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import QueryString from 'query-string'
 import Grid from '@material-ui/core/Grid'
-import Aux from './../../hoc/Aux/Aux'
-import MovieSearch from './../../components/MovieSearch/MovieSearch'
-import MovieForm from './../../components/MovieForm/MovieForm'
-import Axios from './../../helpers/Axios'
-import DialogLoading from './../../components/DialogLoading/DialogLoading'
-import DialogError from './../../components/DialogError/DialogError'
+import Aux from './../hoc/Aux'
+import MovieSearch from './../components/MovieSearch'
+import MovieForm from './../components/MovieForm'
+import Axios from './../helpers/Axios'
+import DialogLoading from './../components/DialogLoading'
+import DialogError from './../components/DialogError'
 
 const Search = (_) => {
   const queryParams = QueryString.parse(useLocation().search)

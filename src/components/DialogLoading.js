@@ -1,5 +1,5 @@
 import React from 'react'
-import Dialog from './../Dialog/Dialog'
+import Dialog from './Dialog'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'

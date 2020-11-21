@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Card from './../Card/Card'
+import Card from './Card'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import AddIcon from '@material-ui/icons/Add'

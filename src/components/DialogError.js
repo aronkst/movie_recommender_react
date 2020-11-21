@@ -1,6 +1,6 @@
 import React from 'react'
-import Dialog from './../Dialog/Dialog'
-import Aux from './../../hoc/Aux/Aux'
+import Dialog from './Dialog'
+import Aux from './../hoc/Aux'
 import Button from '@material-ui/core/Button'
 
 const DialogError = (props) => {

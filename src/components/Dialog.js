@@ -1,5 +1,5 @@
 import React from 'react'
-import Aux from './../../hoc/Aux/Aux'
+import Aux from './../hoc/Aux'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import Dialog from '@material-ui/core/Dialog'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Movies from './Movies'
+import MovieList from './../components/MovieList'
 import Button from '@material-ui/core/Button'
 import BlockIcon from '@material-ui/icons/Block'
 import { makeStyles } from '@material-ui/core/styles'
@@ -35,7 +35,7 @@ const WatchedMovies = (_) => {
   }
 
   return (
-    <Movies
+    <MovieList
       title='BLOCKED MOVIES'
       url='/blocked-movies'
       options={options}

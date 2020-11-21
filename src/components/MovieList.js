@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import Aux from './../../hoc/Aux/Aux'
-import Movie from './../../components/Movie/Movie'
+import Aux from './../hoc/Aux'
+import Movie from './Movie'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
-import MovieSearch from './../../components/MovieSearch/MovieSearch'
-import MovieFilter from './../../components/MovieFilter/MovieFilter'
-import Pagination from './../../components/Pagination/Pagination'
-import Axios from './../../helpers/Axios'
-import DialogLoading from './../../components/DialogLoading/DialogLoading'
-import DialogError from './../../components/DialogError/DialogError'
+import MovieSearch from './MovieSearch'
+import MovieFilter from './MovieFilter'
+import Pagination from './Pagination'
+import Axios from './../helpers/Axios'
+import DialogLoading from './DialogLoading'
+import DialogError from './DialogError'
 import { useLocation } from 'react-router-dom'
 import QueryString from 'query-string'
 
-const Movies = (props) => {
+const MovieList = (props) => {
   const queryParams = QueryString.parse(useLocation().search)
 
   const [loading, setLoading] = useState(true)
@@ -169,4 +169,4 @@ const Movies = (props) => {
   )
 }
 
-export default Movies
+export default MovieList

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Movies from './Movies'
+import MovieList from './../components/MovieList'
 import Button from '@material-ui/core/Button'
 import BlockIcon from '@material-ui/icons/Block'
 import AddIcon from '@material-ui/icons/Add'
@@ -69,7 +69,7 @@ const RecommendedMovies = (_) => {
   }
 
   return (
-    <Movies
+    <MovieList
       title='RECOMMENDED MOVIES'
       url='/recommended-movies'
       options={options}

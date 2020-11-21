@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './../Card/Card'
+import Card from './Card'
 import Chip from '@material-ui/core/Chip'
 import { makeStyles } from '@material-ui/core/styles'
 
