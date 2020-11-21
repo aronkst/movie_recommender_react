@@ -17,13 +17,13 @@ const Search = (_) => {
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true)
       if (title) {
         const data = await Axios('/search', 'GET', { params: { title: title } })
-        setMovies(data)
+        setMovies(data.slice(0, 20))
       }
       setLoading(false)
     }
-
     getData()
   }, [title])
 
@@ -35,13 +35,13 @@ const Search = (_) => {
           {loading
             ? <CircularProgress />
             : <Aux>
-              {movies.slice(0, 10).map(movie => {
+              {movies.map(movie => {
                 return <MovieSearched key={movie.IMDb} image={movie.Image} title={movie.Title} year={movie.Year} imdb={movie.IMDb} />
               })}
             </Aux>}
         </Grid>
         <Grid item xs={4}>
-          <MovieSearch />
+          <MovieSearch title={title} />
         </Grid>
       </Grid>
     </Aux>
