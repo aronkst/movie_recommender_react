@@ -6,6 +6,8 @@ The front-end was developed using [React](https://github.com/facebook/react) and
 
 Clone this project and make your build, with the built files, copy with the back-end executable and execute it, making the server live, which will load the front-end files. Now just access the server and you will have access to the application.
 
-## `npm run build`
+---
 
-Builds the app for production to the `build` folder.
+`npm run build`
+
+Builds the app to the `build` folder.
