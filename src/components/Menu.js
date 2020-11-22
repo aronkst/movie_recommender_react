@@ -28,7 +28,7 @@ const Menu = (_) => {
       <AppBar position='static'>
         <Toolbar>
           <Typography className={classes.typography} variant='h6' noWrap>
-            movie_recommender
+            Movie Recommender
           </Typography>
           <Button
             className={classes.button}
