@@ -5,13 +5,13 @@ const Axios = async (url, method, values = null) => {
 
   switch (method) {
     case 'GET':
-      res = await axios.get(`http://localhost:8080${url}`, values)
+      res = await axios.get(`http://localhost:8080/api${url}`, values)
       break
     case 'POST':
-      res = await axios.post(`http://localhost:8080${url}`, values)
+      res = await axios.post(`http://localhost:8080/api${url}`, values)
       break
     case 'DELETE':
-      res = await axios.delete(`http://localhost:8080${url}`, values)
+      res = await axios.delete(`http://localhost:8080/api${url}`, values)
       break
     default:
       return null
