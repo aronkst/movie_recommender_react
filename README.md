@@ -1,6 +1,6 @@
 # Movie Recommender React
 
-This is the front-end project for [Movie Recommender](https://github.com/aronkst/movie_recommender).
+This is the front-end project for [Movie Recommender](https://github.com/aronkst/movie-recommender).
 
 The front-end was developed using [React](https://github.com/facebook/react) and its use must be combined with the back-end that was developed in [Go](https://github.com/golang/go) and [Gin](https://github.com/gin-gonic/gin).
 
